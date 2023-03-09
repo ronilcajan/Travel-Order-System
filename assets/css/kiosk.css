@@ -1,0 +1,58 @@
+html,
+body {
+	height: 100%;
+	margin: 0px;
+	padding: 0px;
+}
+
+#about-btn {
+	font-weight: bold;
+	text-transform: uppercase;
+	color: #fff;
+	padding: 10px 40px;
+	border-radius: 1px;
+	border: 2px solid #fff;
+	margin-top: 40px;
+}
+
+#img-town {
+	display: none;
+}
+
+@media (max-width: 576px) {
+	#img-town img,
+	img.brgy {
+		width: 120px;
+		margin-top: -50px;
+	}
+	#account {
+		width: 100% !important;
+	}
+	.welcome_text {
+		margin-top: -10px;
+		font-size: 25px;
+	}
+	.caption_text {
+		font-size: 15px;
+	}
+	#about-btn {
+		margin-top: 0px;
+	}
+}
+
+@media (max-width: 768px) {
+	#img-town {
+		display: block;
+	}
+	img.img-town {
+		display: none;
+	}
+}
+
+@media (min-width: 1200px) {
+	h1.welcome_text {
+		font-size: 60px;
+		text-transform: uppercase;
+		text-shadow: 2px 2px 4px #000000;
+	}
+}
