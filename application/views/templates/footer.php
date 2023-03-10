@@ -1,6 +1,5 @@
-<?php $current_page = $this->uri->segment(2); ?>
 <script>
-    var SITE_URL = "<?php echo site_url(); ?>";
+var SITE_URL = "<?php echo site_url(); ?>";
 </script>
 
 <!-- ===== jQuery ===== -->
@@ -19,12 +18,6 @@
 <script src="<?= site_url() ?>assets/plugins/components/dropify/dist/js/dropify.min.js"></script>
 
 <script src="<?= site_url() ?>assets/plugins/components/moment/min/moment.min.js"></script>
-
-<script src="<?= site_url() ?>assets/plugins/components/jquery-asColorPicker-master/libs/jquery-asColor.js"></script>
-<script src="<?= site_url() ?>assets/plugins/components/jquery-asColorPicker-master/libs/jquery-asGradient.js"></script>
-<script src="<?= site_url() ?>assets/plugins/components/jquery-asColorPicker-master/dist/jquery-asColorPicker.min.js"></script>
-<script src="<?= site_url() ?>assets/plugins/components/summernote/summernote.min.js"></script>
-
 <!-- datatables -->
 <script src="<?= site_url() ?>assets/plugins/components/datatables/jquery.dataTables.min.js"></script>
 <!-- start - This is for export functionality only -->
@@ -41,30 +34,21 @@
 <script src="<?= site_url() ?>assets/plugins/components/switchery/dist/switchery.min.js"></script>
 
 <script src="<?= site_url() ?>assets/plugins/components/select2/select2.full.min.js" type="text/javascript"></script>
-<script src="<?= site_url() ?>assets/plugins/components/bootstrap-select/bootstrap-select.min.js" type="text/javascript"></script>
+<script src="<?= site_url() ?>assets/plugins/components/bootstrap-select/bootstrap-select.min.js"
+    type="text/javascript"></script>
 <!-- Bootstrap Notify -->
-<script src="<?= site_url() ?>assets/plugins/components/toast-master/js/jquery.toast.js"></script>
 <script src="<?= site_url() ?>assets/js/jquery.PrintArea.js" type="text/JavaScript"></script>
 <script src="<?= site_url() ?>assets/webcamjs/webcam.min.js"></script>
-
-<script src="<?= site_url() ?>assets/js/mydatatables.js"></script>
-<script src="<?= site_url() ?>assets/js/myscript.js"></script>
-<script src="<?= site_url() ?>assets/js/myajax.js"></script>
-<!-- ===== Style Switcher JS ===== -->
-
-<script src='<?= site_url() ?>assets/plugins/components/fullcalendar/fullcalendar.js'></script>
-<script src="<?= site_url() ?>assets/plugins/components/calendar/dist/jquery.fullcalendar.js"></script>
-
-<script src="<?= site_url() ?>assets/plugins/components/styleswitcher/jQuery.style.switcher.js"></script>
-<script src="<?= site_url() ?>assets/plugins/components/jquery-validation/jquery.validate.min.js"></script>
 
 <script src="<?= site_url() ?>assets/plugins/components/raphael/raphael.js"></script>
 <script src="<?= site_url() ?>assets/plugins/components/morrisjs/morris.js"></script>
 <script src="<?= site_url() ?>assets/plugins/components/chartist-js/dist/chartist.min.js"></script>
-<script src="<?= site_url() ?>assets/plugins/components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js"></script>
+<script
+    src="<?= site_url() ?>assets/plugins/components/chartist-plugin-tooltip-master/dist/chartist-plugin-tooltip.min.js">
+</script>
+
+<script src="<?= site_url() ?>assets/js/mydatatables.js"></script>
+<script src="<?= site_url() ?>assets/js/myscript.js"></script>
+<script src="<?= site_url() ?>assets/js/myajax.js"></script>
 <script src="<?= site_url() ?>assets/js/chart-data.js"></script>
-
-
-<?php if ($current_page == 'payments') : ?>
-    <script src="<?= site_url() ?>assets/js/mydate_range.js"> </script>
-<?php endif ?>
+<script src="<?= site_url() ?>assets/js/functions.js"></script>

@@ -36,45 +36,6 @@ class Settings extends CI_Controller
         $this->admin->load('admin', 'logs_history', $data);
     }
 
-    public function send_support()
-    {
-        $this->form_validation->set_rules('name', 'Name', 'required|trim');
-        $this->form_validation->set_rules('email', 'Email Address', 'required|trim');
-        $this->form_validation->set_rules('subject', 'Email Subject', 'required|trim');
-        $this->form_validation->set_rules('message', 'Message', 'required|trim');
-
-        if ($this->form_validation->run() == FALSE) {
-
-            $this->session->set_flashdata('errors', validation_errors());
-        } else {
-
-            $data = array(
-                'name' => $this->input->post('name'),
-                'email' => $this->input->post('email'),
-                'number' => $this->input->post('number'),
-                'subject' => $this->input->post('subject'),
-                'message' => $this->input->post('message')
-            );
-
-            $insert = $this->settingsModel->send($data);
-
-            if ($insert) {
-                $log = array(
-                    'activity' => 'Support created',
-                    'action' => 'Create',
-                    'username' => $this->session->username,
-                );
-                $this->settingsModel->insert_activity($log);
-
-                $this->session->set_flashdata('message', 'Support has been sent!');
-            } else {
-                $this->session->set_flashdata('errors', 'Support not sent!');
-            }
-        }
-
-        redirect($_SERVER['HTTP_REFERER'], 'refresh');
-    }
-
     public function delete($id)
     {
         $delete = $this->settingsModel->delete($id);
@@ -92,49 +53,11 @@ class Settings extends CI_Controller
         redirect('settings/support', 'refresh');
     }
 
-    public function updateCertSettings()
-    {
-        $config['upload_path'] = 'assets/uploads/';
-        $config['allowed_types'] = 'jpg|png|jpeg|gif';
-        $config['encrypt_name'] = TRUE;
-        $this->load->library('upload', $config);
-
-        $data = array(
-            'color_bg' => $this->input->post('color_bg')
-        );
-
-        if($this->upload->do_upload('flag')){
-            $flag = $this->upload->data();
-            $data['flag'] = $flag['file_name'];
-        }
-        if($this->upload->do_upload('motto')){
-            $motto = $this->upload->data();
-            $data['motto'] = $motto['file_name'];
-        }
-        if($this->upload->do_upload('signature')){
-            $signature = $this->upload->data();
-            $data['signature'] = $signature['file_name'];
-        }
-        if($this->upload->do_upload('watermark')){
-            $watermark = $this->upload->data();
-            $data['watermark'] = $watermark['file_name'];
-        }
-
-        $update = $this->settingsModel->updateCertSetting($data);
-
-        if ($update) {
-            $log = array(
-                'activity' => 'Ceritificate settings updated',
-                'action' => 'Update',
-                'username' => $this->session->username,
-            );
-            $this->settingsModel->insert_activity($log);
-            $this->session->set_flashdata('message', 'Certificate settings has been updated!');
-        } else {
-            $this->session->set_flashdata('errors', 'No changes has been made!');
-        }
-
-        redirect($_SERVER['HTTP_REFERER'], 'refresh');
+    public function error_page(){
+        $this->load->view('404');
+    }
+    public function error_forbidden(){
+        $this->load->view('403');
     }
 
     public function updateSystem()

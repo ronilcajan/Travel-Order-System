@@ -123,34 +123,6 @@ $(document).ready(function(){
         });
     });
 
-    $("#certIDform").validate({
-        errorElement : 'span',
-        errorClass: 'help-block',
-        highlight: function(input) {
-            $(input).parents('.form-group').addClass('has-error');
-        },
-        unhighlight: function(input) {
-            $(input).parents('.form-group').removeClass('has-error');
-        },
-        errorPlacement: function(error, element) {
-            $(element).parents('.form-group').append(error);
-        }
-    });
-
-    $("#edit-certIDform").validate({
-        errorElement : 'span',
-        errorClass: 'help-block',
-        highlight: function(input) {
-            $(input).parents('.form-group').addClass('has-error');
-        },
-        unhighlight: function(input) {
-            $(input).parents('.form-group').removeClass('has-error');
-        },
-        errorPlacement: function(error, element) {
-            $(element).parents('.form-group').append(error);
-        }
-    });
-
     $("#residentUpdate").click(function() {
 
         $("#update-resident-form").validate({
@@ -173,32 +145,6 @@ $(document).ready(function(){
     });
 
 })
-function createPermit(){
-    var formdata = new FormData(document.getElementById("permit-form"));
-    $.ajax({
-        type: "POST",
-        url: SITE_URL+"business/create_permit",
-        dataType: "json",
-        data: formdata,
-        processData: false,
-        contentType: false,
-        cache: false,
-        success: function(response) {
-            if (response.success == true) {
-                $("#permit-form")[0].reset();
-                $('#addPermit').modal('hide');
-                alertNotif(response.msg, 'success');
-                
-                setTimeout(function() {
-                    window.location.reload(1);
-                }, 2000);
-
-            } else {
-                alertNotif(response.msg, 'error');
-            }
-        }
-    });
-}
 function createRes(){
     var formdata = new FormData(document.getElementById("resident-form"));
     $.ajax({

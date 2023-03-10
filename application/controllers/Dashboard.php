@@ -248,10 +248,7 @@ class Dashboard extends CI_Controller
         redirect($_SERVER['HTTP_REFERER'], 'refresh');
     }
 
-    public function error_page()
-    {
-        $this->load->view('404');
-    }
+    
 
     public function getvoters($state)
     {

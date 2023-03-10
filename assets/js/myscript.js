@@ -292,16 +292,6 @@ function editPos(that){
     $('#pos_id').val(id);
 }
 
-
-
-function editRelation(that){
-    res_id = $(that).attr('data-res');
-    rel = $(that).attr('data-rel');
-
-    $('#res_id').val(res_id);
-    $('#relation').val(rel);
-}
-
 function convertTime(dateTime){
     var dateVal = new Date(dateTime);
     var day = dateVal.getDate().toString().padStart(2, "0");

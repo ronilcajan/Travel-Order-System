@@ -43,10 +43,10 @@ class Auth extends CI_Controller
         if (!$this->ion_auth->logged_in()) {
             // redirect them to the login page
             redirect('auth/login', 'refresh');
-        } else if (!$this->ion_auth->is_admin()) // remove this elseif if you want to enable this for non-admins
-        {
+        } 
+        if (!$this->ion_auth->in_group(1)){
             // redirect them to the home page because they must be an administrator to view this
-            show_error('You must be an administrator to view this page.');
+            redirect('404_override', 'refresh');
         } else {
 
             $config['upload_path'] = 'assets/uploads/avatar/';
@@ -78,40 +78,21 @@ class Auth extends CI_Controller
                     $identity = ($identity_column === 'email') ? $email : $this->input->post('identity');
                     $password = $this->input->post('password');
 
-                    if (!$this->upload->do_upload('avatar') && empty($this->input->post('profileimg'))) {
-                        $additional_data = array(
-                            'first_name' => $this->input->post('first_name'),
-                            'last_name' => $this->input->post('last_name'),
-                        );
-                        $group = array($this->input->post('group'));
-                    } elseif (!empty($this->input->post('profileimg'))) {
-                        $additional_data = [
-                            'first_name' => $this->input->post('first_name'),
-                            'last_name' => $this->input->post('last_name'),
-                            'avatar' => $this->input->post('profileimg'),
-                        ];
-                        $group = array($this->input->post('group'));
-                    } else {
+                    $additional_data = array(
+                        'first_name' => $this->input->post('first_name'),
+                        'last_name' => $this->input->post('last_name'),
+                    );
 
-                        $file = $this->upload->data();
-                        //Resize and Compress Image
-                        $config['image_library'] = 'gd2';
-                        $config['source_image'] = 'assets/uploads/avatar/' . $file['file_name'];
-                        $config['create_thumb'] = FALSE;
-                        $config['maintain_ratio'] = TRUE;
-                        $config['quality'] = '60%';
-                        $config['new_image'] = 'assets/uploads/avatar/' . $file['file_name'];
-
-                        $this->load->library('image_lib', $config);
-                        $this->image_lib->resize();
-
-                        $additional_data = array(
-                            'first_name' => $this->input->post('first_name'),
-                            'last_name' => $this->input->post('last_name'),
-                            'avatar' => $file['file_name'],
-                        );
-                        $group = array($this->input->post('group'));
+                    if ($this->input->post('profileimg')) {
+                        $additional_data['avatar'] = $this->input->post('profileimg');
                     }
+                    if ($this->upload->do_upload('avatar')) {
+                        $file = $this->upload->data();
+                        $additional_data['avatar'] = $file['file_name'];
+                    }
+                    
+                    $group = array($this->input->post('group'));
+                        
 
                     if ($this->ion_auth->register($identity, $password, $email, $additional_data, $group)) {
                         // check to see if we are creating the user
@@ -184,7 +165,7 @@ class Auth extends CI_Controller
                 }
                 if($this->upload->do_upload('avatar')){
                     $file = $this->upload->data();
-                    $data['avatar'] = $fie['file_name'];
+                    $data['avatar'] = $file['file_name'];
                 }
 
                 $update = $this->ion_auth->update($user->id, $data);

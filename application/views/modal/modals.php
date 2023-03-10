@@ -5,9 +5,6 @@ $row = $query->row();
 $query1 = $this->db->query("SELECT * FROM system_info WHERE id=1");
 $ss = $query1->row();
 
-$query2 = $this->db->query("SELECT * FROM cert_settings WHERE id=1");
-$certs = $query2->row();
-
 $sess = $this->ion_auth->user()->row();
 ?>
 

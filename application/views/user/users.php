@@ -9,12 +9,13 @@
                 <li>
                     <?= $this->session->role ?>
                     <?php if ($this->ion_auth->is_admin() || $this->ion_auth->in_group(3)) : ?>
-                        <div class="card-tools">
-                            <a href="#add_user" data-toggle="modal" class="fcbtn btn btn-outline btn-primary btn-1d btn-xs btn-rounded">
-                                <i class="fa fa-plus"></i>
-                                User
-                            </a>
-                        </div>
+                    <div class="card-tools">
+                        <a href="#add_user" data-toggle="modal"
+                            class="fcbtn btn btn-outline btn-primary btn-1d btn-xs btn-rounded">
+                            <i class="fa fa-plus"></i>
+                            User
+                        </a>
+                    </div>
                     <?php endif ?>
                 </li>
             </ul>
@@ -27,7 +28,7 @@
                 <tr>
                     <th scope="col">No.</th>
                     <th scope="col">Name</th>
-                    <th scope="col">Identity</th>
+                    <th scope="col">Username</th>
                     <th scope="col">Email</th>
                     <th scope="col">User Type</th>
                     <th scope="col">Created At</th>
@@ -37,38 +38,49 @@
             </thead>
             <tbody>
                 <?php if (!empty($users)) : ?>
-                    <?php $no = 1;
-                    foreach ($users as $row) : ?>
-                        <tr>
-                            <td><?= $no ?></td>
-                            <td>
-                                <?php if (empty($row->avatar)) : ?>
-                                    <img width="30" height="30" class="img-circle" alt="user" src="<?= site_url() ?>assets/img/person.png" />
-                                <?php else : ?>
-                                    <img width="30" height="30" class="img-circle" alt="user" src="<?= preg_match('/data:image/i', $row->avatar) ? $row->avatar : site_url() . 'assets/uploads/avatar/' . $row->avatar ?>" />
-                                <?php endif ?>
-                                <?= ucwords($row->first_name . ' ' . $row->last_name) ?>
-                            </td>
-                            <td><?= $row->username ?></td>
-                            <td><?= $row->email ?></td>
-                            <td>
-                                <span class="label label-table label-primary">
-                                    <?php foreach ($row->groups as $group) : ?>
-                                        <?= htmlspecialchars($group->name, ENT_QUOTES, 'UTF-8'); ?><br />
-                                    <?php endforeach ?>
-                                </span>
-                            </td>
-                            <td><?= date('M. d, Y h:i:s A', $row->created_on) ?></td>
-                            <td><?= !empty($row->last_login) ? date('M. d, Y h:i:s A', $row->last_login) : null ?></td>
-                            <td>
-                                <?php if ($sess->id != $row->id) : ?>
-                                    <a href="<?= site_url('auth/delete_user/') . $row->id ?>" onclick="return confirm('Are you sure you want to delete this user?');" data-toggle="tooltip" data-original-title="Remove">
-                                        <i class="fa fa-close text-danger"></i> </a>
-                                <?php endif ?>
-                            </td>
+                <?php 
+                $no = 1;
+                foreach ($users as $row) : 
 
-                        </tr>
-                    <?php $no++;
+                    foreach ($row->groups as $group) { // get the user roles
+                        $group = $group->name;
+                    } 
+                ?>
+                <?php if($group !== 'super-admin' || !$this->ion_auth->in_group(1)): ?>
+                <tr>
+
+                    <td><?= $no ?></td>
+                    <td>
+                        <?php if (empty($row->avatar)) : ?>
+                        <img width="30" height="30" class="img-circle" alt="user"
+                            src="<?= site_url() ?>assets/img/person.png" />
+                        <?php else : ?>
+                        <img width="30" height="30" class="img-circle" alt="user"
+                            src="<?= preg_match('/data:image/i', $row->avatar) ? $row->avatar : site_url() . 'assets/uploads/avatar/' . $row->avatar ?>" />
+                        <?php endif ?>
+                        <?= ucwords($row->first_name . ' ' . $row->last_name) ?>
+                    </td>
+                    <td><?= $row->username ?></td>
+                    <td><?= $row->email ?></td>
+                    <td>
+                        <span class="label label-table label-primary">
+                            <?= $group ?>
+                        </span>
+                    </td>
+                    <td><?= date('M. d, Y h:i:s A', $row->created_on) ?></td>
+                    <td><?= !empty($row->last_login) ? date('M. d, Y h:i:s A', $row->last_login) : null ?></td>
+                    <td>
+                        <?php if ($sess->id != $row->id) : ?>
+                        <a href="<?= site_url('auth/delete_user/') . $row->id ?>"
+                            onclick="return confirm('Are you sure you want to delete this user?');"
+                            data-toggle="tooltip" data-original-title="Remove">
+                            <i class="fa fa-close text-danger"></i> </a>
+                        <?php endif ?>
+                    </td>
+
+                </tr>
+                <?php endif ?>
+                <?php $no++;
                     endforeach ?>
                 <?php endif ?>
             </tbody>

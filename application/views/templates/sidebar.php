@@ -68,6 +68,7 @@ $sk = $this->uri->segment(3);
                                 class="caret pull-right m-t-10"></span></span></a>
                     <ul aria-expanded="false" class="collapse m-b-40 p-b-40">
                         <li><a href="<?= site_url('admin/position') ?>">POSITIONS</a></li>
+                        <li><a href="<?= site_url('admin/roles') ?>">ROLES</a></li>
                         <li><a href="#restore" data-toggle="modal">RESTORE</a></li>
                         <li><a href="<?= site_url('backup') ?>" data-toggle="modal">BACKUP</a></li>
                         <li><a href="#system" data-toggle="modal">SYSTEM</a></li>

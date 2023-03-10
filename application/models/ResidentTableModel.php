@@ -17,7 +17,6 @@ class ResidentTableModel extends CI_Model
 
     private function _get_datatables_query($from = '', $to = '')
     {
-        $this->db->select('*, covid_status.remarks as remarks');
         $this->db->from($this->table);
 
         $i = 0;
@@ -40,8 +39,7 @@ class ResidentTableModel extends CI_Model
                     $this->db->group_end(); //close bracket
             }
             $i++;
-        }
-        $this->db->join('covid_status ', 'residents.id=covid_status.resident_id');
+        } 
         if (isset($_POST['order'])) // here order processing
         {
             if (!empty($from) && !empty($to) !== false) {

@@ -59,7 +59,7 @@ $autoload['packages'] = array(APPPATH . 'third_party/ion_auth');
 |
 |	$autoload['libraries'] = array('user_agent' => 'ua');
 */
-$autoload['libraries'] = array('database', 'email', 'session', 'form_validation', 'ion_auth', 'auth_layout', 'admin', 'certificate_layout', 'kiosk_layout');
+$autoload['libraries'] = array('database', 'email', 'session', 'form_validation', 'ion_auth', 'auth_layout', 'admin');
 
 /*
 | -------------------------------------------------------------------
@@ -136,26 +136,10 @@ $autoload['language'] = array();
 $autoload['model'] = array(
     'userModel',
     'settingsModel',
-    'purokModel',
-    'precinctModel',
     'positionModel',
-    'chairmanshipModel',
     'officialsModel',
     'residentModel',
-    'paymentsModel',
-    'businessModel',
-    'blotterModel',
     'dashboardModel',
-    'certificateModel',
-    'populationTableModel',
     'residentTableModel',
-    'votersTableModel',
-    'covidTableModel',
-    'covidDeathTableModel',
-    'calendarModel',
-    'projectModel',
-    'reportModel',
-    'servicesModel',
-    'requestModel',
-    'occupationModel',
+    'rolesModel',
 );
