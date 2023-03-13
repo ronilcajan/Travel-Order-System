@@ -33,7 +33,7 @@ $(document).ready(function(){
         }
     });
 
-    $(".colorpicker").asColorPicker();
+    // $(".colorpicker").asColorPicker();
 
     $("#select2").select2({
         placeholder: "Search House Number",
@@ -112,22 +112,22 @@ $(document).ready(function(){
     });
 });
 
-$('#summernote').summernote({
-    fontNames: ['Calibri', 'Arial Black', 'Comic Sans MS', 'Courier New'],
-    tabsize: 2,
-    height: 300,
-    toolbar: [
-        [ 'style', [ 'style' ] ],
-        [ 'font', [ 'bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript', 'clear'] ],
-        [ 'fontname', [ 'fontname' ] ],
-        [ 'fontsize', [ 'fontsize' ] ],
-        [ 'color', [ 'color' ] ],
-        [ 'para', [ 'ol', 'ul', 'paragraph', 'height' ] ],
-        [ 'table', [ 'table' ] ],
-        [ 'insert', [ 'link'] ],
-        [ 'view', [ 'undo', 'redo', 'fullscreen', 'help' ] ]
-    ]
-});
+// $('#summernote').summernote({
+//     fontNames: ['Calibri', 'Arial Black', 'Comic Sans MS', 'Courier New'],
+//     tabsize: 2,
+//     height: 300,
+//     toolbar: [
+//         [ 'style', [ 'style' ] ],
+//         [ 'font', [ 'bold', 'italic', 'underline', 'strikethrough', 'superscript', 'subscript', 'clear'] ],
+//         [ 'fontname', [ 'fontname' ] ],
+//         [ 'fontsize', [ 'fontsize' ] ],
+//         [ 'color', [ 'color' ] ],
+//         [ 'para', [ 'ol', 'ul', 'paragraph', 'height' ] ],
+//         [ 'table', [ 'table' ] ],
+//         [ 'insert', [ 'link'] ],
+//         [ 'view', [ 'undo', 'redo', 'fullscreen', 'help' ] ]
+//     ]
+// });
 
 function getAge() 
 {

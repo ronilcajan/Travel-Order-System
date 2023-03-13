@@ -7,8 +7,6 @@
         <div class="col-sm-6">
             <ul class="list-inline pull-right">
                 <li>
-                    <?= $this->session->role ?>
-                    <?php if ($this->ion_auth->is_admin() || $this->ion_auth->in_group(3)) : ?>
                     <div class="card-tools">
                         <a href="#add_user" data-toggle="modal"
                             class="fcbtn btn btn-outline btn-primary btn-1d btn-xs btn-rounded">
@@ -16,7 +14,6 @@
                             User
                         </a>
                     </div>
-                    <?php endif ?>
                 </li>
             </ul>
         </div>

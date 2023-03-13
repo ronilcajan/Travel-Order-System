@@ -60,5 +60,3 @@
         </table>
     </div>
 </div>
-
-<?php $this->load->view('resident/modal') ?>

@@ -1,7 +1,4 @@
 <?php
-$query = $this->db->query("SELECT * FROM barangay_info WHERE id=1");
-$row = $query->row();
-
 $query1 = $this->db->query("SELECT * FROM system_info WHERE id=1");
 $ss = $query1->row();
 

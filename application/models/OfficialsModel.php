@@ -11,9 +11,8 @@ class OfficialsModel extends CI_Model
 
     public function getOfficials()
     {
-        $this->db->select('*,officials.id as id, chairmanship.id as chair_id, position.id as pos_id');
+        $this->db->select('*,officials.id as id, position.id as pos_id');
         $this->db->from('officials');
-        $this->db->join('chairmanship', 'chairmanship.id = officials.chairmanship');
         $this->db->join('position', 'position.id = officials.position');
         $this->db->order_by("position.pos_order", "asc");
         $query = $this->db->get();
@@ -24,7 +23,6 @@ class OfficialsModel extends CI_Model
     {
         $this->db->select('*');
         $this->db->from('officials');
-        $this->db->join('chairmanship', 'chairmanship.id = officials.chairmanship');
         $this->db->join('position', 'position.id = officials.position');
         $this->db->where("status", "Active");
         $this->db->where("name_show", 1);

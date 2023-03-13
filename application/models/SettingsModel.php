@@ -59,12 +59,6 @@ class SettingsModel extends CI_Model
         return $query->result();
     }
 
-    public function getbrgy_Info()
-    {
-        $query = $this->db->get('barangay_info');
-        return $query->row();
-    }
-
     public function delete($id)
     {
         $this->db->where('id', $id);

@@ -3,9 +3,8 @@
         <div class="white-box">
             <div class="media bg-primary">
                 <div class="media-body">
-                    <h3 class="info-count" id="total"><span
-                            style="font-size: 40px;"><?= number_format($population) ?></span> <span
-                            class="pull-right"><i class="icon-people"></i></span></h3>
+                    <h3 class="info-count" id="total"><span style="font-size: 40px;"></span> <span class="pull-right"><i
+                                class="icon-people"></i></span></h3>
                     <p class="info-text font-bold">Population</p>
                     <p class="info-ot font-13"><a href="<?= site_url('admin/population') ?>" class="text-white">GENERATE
                             REPORT</a></p>
@@ -17,7 +16,7 @@
         <div class="white-box">
             <div class="media bg-success">
                 <div class="media-body">
-                    <h3 class="info-count"><span style="font-size: 40px;"><?= number_format(count($voters)) ?></span>
+                    <h3 class="info-count"><span style="font-size: 40px;"></span>
                         <span class="pull-right"><i class="icon-user-following"></i></span>
                     </h3>
                     <p class="info-text font-bold">Voters</p>
@@ -31,7 +30,7 @@
         <div class="white-box">
             <div class="media bg-warning">
                 <div class="media-body">
-                    <h3 class="info-count"><span style="font-size: 40px;"><?= number_format(count($nonvoters)) ?></span>
+                    <h3 class="info-count"><span style="font-size: 40px;"></span>
                         <span class="pull-right"><i class="icon-user-unfollow"></i></span>
                     </h3>
                     <p class="info-text font-bold">Non Voters</p>
@@ -45,8 +44,8 @@
         <div class="white-box">
             <div class="media" style="background-color:#6861ce">
                 <div class="media-body">
-                    <h3 class="info-count"><span style="font-size: 40px;"><?= number_format(count($pwd)) ?></span> <span
-                            class="pull-right"><i class="fa fa-wheelchair"></i></span></h3>
+                    <h3 class="info-count"><span style="font-size: 40px;"></span> <span class="pull-right"><i
+                                class="fa fa-wheelchair"></i></span></h3>
                     <p class="info-text font-bold text-white">PWD</p>
                     <p class="info-ot font-13"><a href="<?= site_url('admin/resident_info/pwd') ?>"
                             class="text-white">GENERATE REPORT</a></p>
@@ -92,9 +91,4 @@
             <h4 class="box-title">BARANGAY MISSION AND VISION</h4>
         </div>
     </div>
-    <p class="m-b-20">
-        <?= !empty($info->dashboard_text) ? $info->dashboard_text : 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Pellentesque in ipsum id orci porta dapibus. Donec rutrum congue leo eget malesuada. Curabitur arcu erat, accumsan id imperdiet et, porttitor at sem. Quisque velit nisi, pretium ut lacinia in, elementum id enim.' ?>
-    </p>
-    <img src="<?= !empty($info->dashboard_img) ? base_url() . 'assets/uploads/' . $info->dashboard_img : base_url() . 'assets/img/bg-abstract.png' ?>"
-        style="width: 100%" />
 </div>

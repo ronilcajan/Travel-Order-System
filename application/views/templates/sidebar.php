@@ -61,7 +61,7 @@ $sk = $this->uri->segment(3);
                     <a href="<?= site_url('admin/user') ?>" aria-expanded="false"><i class="icon-user fa-fw"></i>
                         <span class="hide-menu">USERS</span></a>
                 </li>
-                <?php if ($this->ion_auth->is_admin()) : ?>
+                <?php if ($this->ion_auth->in_group(1)) : ?>
                 <li>
                     <a class="waves-effect" href="javascript:void(0);" aria-expanded="false"><i
                             class="icon-wrench fa-fw"></i> <span class="hide-menu"> SETTINGS<span

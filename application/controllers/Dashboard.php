@@ -18,18 +18,17 @@ class Dashboard extends CI_Controller
 
     public function index()
     {
-        $data['population'] = $this->dashboardModel->getTotalPopulation();
-        $data['voters'] = $this->dashboardModel->getVoters();
-        $data['nonvoters'] = $this->dashboardModel->getnonVoters();
-        $data['pwd'] = $this->dashboardModel->getPWD();
-        $data['senior'] = $this->dashboardModel->getSenior();
-        $data['blotter'] = $this->dashboardModel->getBlotter();
-        $data['sk'] = $this->dashboardModel->getSK();
-        $data['permit'] = $this->dashboardModel->getPermit();
-        $data['male'] = $this->dashboardModel->getMale();
-        $data['female'] = $this->dashboardModel->getFemale();
+        // $data['population'] = $this->dashboardModel->getTotalPopulation();
+        // $data['voters'] = $this->dashboardModel->getVoters();
+        // $data['nonvoters'] = $this->dashboardModel->getnonVoters();
+        // $data['pwd'] = $this->dashboardModel->getPWD();
+        // $data['senior'] = $this->dashboardModel->getSenior();
+        // $data['blotter'] = $this->dashboardModel->getBlotter();
+        // $data['sk'] = $this->dashboardModel->getSK();
+        // $data['permit'] = $this->dashboardModel->getPermit();
+        // $data['male'] = $this->dashboardModel->getMale();
+        // $data['female'] = $this->dashboardModel->getFemale();
 
-        $data['info'] = $this->settingsModel->getbrgy_Info();
         $data['title'] = 'Dashboard';
         $this->admin->load('admin', 'dashboard', $data);
     }

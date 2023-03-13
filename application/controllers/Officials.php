@@ -18,9 +18,7 @@ class Officials extends CI_Controller
 
     public function index()
     {
-        $data['info'] = $this->settingsModel->getbrgy_Info();
         $data['officials'] = $this->officialsModel->getOfficials();
-        $data['chair'] = $this->chairmanshipModel->getChairmanship();
         $data['pos'] = $this->positionModel->getPosition();
 
         $data['title'] = 'Barangay Officials';

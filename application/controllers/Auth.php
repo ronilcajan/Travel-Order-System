@@ -77,7 +77,7 @@ class Auth extends CI_Controller
                     $email = strtolower($this->input->post('email'));
                     $identity = ($identity_column === 'email') ? $email : $this->input->post('identity');
                     $password = $this->input->post('password');
-
+ 
                     $additional_data = array(
                         'first_name' => $this->input->post('first_name'),
                         'last_name' => $this->input->post('last_name'),
@@ -192,7 +192,7 @@ class Auth extends CI_Controller
         if (!$this->ion_auth->logged_in()) {
             // redirect them to the login page
             redirect('auth/login', 'refresh');
-        } else if (!$this->ion_auth->is_admin()) // remove this elseif if you want to enable this for non-admins
+        } else if (!$this->ion_auth->in_group(1)) // remove this elseif if you want to enable this for non-admins
         {
             // redirect them to the home page because they must be an administrator to view this
             show_error('You must be an administrator to view this page.');
